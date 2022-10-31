@@ -5,7 +5,7 @@ import "../../App.css";
 
 import axios from "axios";
 
-const baseUrl = "http://localhost:3001/register";
+const baseUrl = "/register";
 
 class RegisterContents extends React.Component {
   state = {

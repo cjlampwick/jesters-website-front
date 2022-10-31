@@ -9,7 +9,7 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 const events = [];
 
-const baseUrl = "http://localhost:3001/coworking";
+const baseUrl = "/coworking";
 
 class JSModalReserve extends React.Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class JSModalReserve extends React.Component {
   pagar = async () => {
     const idUserPagar = cookies.get("id");
     await axios
-      .post("http://localhost:3001/checkoutPagar", {
+      .post("/checkoutPagar", {
         userIdPagar: idUserPagar,
         dateFrom: this.state.dateFrom,
         dateTo: this.state.dateTo,
@@ -70,7 +70,7 @@ class JSModalReserve extends React.Component {
       // });
   };
   redirect = (evt) => {
-    window.location.href = "http://localhost:3001/checkout";
+    window.location.href = "/checkout";
   };
 
   reserve = async () => {

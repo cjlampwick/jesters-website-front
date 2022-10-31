@@ -4,7 +4,7 @@ import axios from "axios";
 import background from "../../assets/background-video.webm";
 import Form from "react-bootstrap/Form";
 
-const baseUrl = "http://localhost:3001/checkout";
+const baseUrl = "/checkout";
 
 class JestersParty extends React.Component {
   state = {
@@ -40,7 +40,7 @@ class JestersParty extends React.Component {
   };
   redirect = (evt) => {
     debugger;
-    window.location.href = "http://localhost:3001/checkout";
+    window.location.href = "/checkout";
   };
 
   render() {

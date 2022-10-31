@@ -2,7 +2,7 @@ import React from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
 
-const baseUrl = "http://localhost:3001/login";
+const baseUrl = "/login";
 const cookies = new Cookies();
 
 class LoginContents extends React.Component {
