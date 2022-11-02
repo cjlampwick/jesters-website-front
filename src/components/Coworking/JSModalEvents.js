@@ -39,7 +39,7 @@ class JSModalEvents extends React.Component {
     .then((response)=>{
       console.log(response);
       this.handleCloseEvent();
-      window.location.href="http://localhost:3000/coworking/scheduler"
+      window.location.href="/coworking/scheduler"
     })
 
   };

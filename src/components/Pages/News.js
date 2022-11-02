@@ -19,7 +19,7 @@ class News extends React.Component {
   }
 
   async componentDidMount() {
-    const res = await axios.get('http://localhost:3000/news');
+    const res = await axios.get('/news');
     this.setState({ news: res.data.news });
     console.log(this.state);
   }
