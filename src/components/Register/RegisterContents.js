@@ -107,7 +107,7 @@ class RegisterContents extends React.Component {
             </button>
             {this.state.triedRegister == true ? (
               this.state.register == true ? (
-                (window.location.href = "http://localhost:3000/")
+                (window.location.href = "/")
               ) : (
                 <p className="text-danger">registration failed</p>
               )
