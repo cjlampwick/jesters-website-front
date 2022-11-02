@@ -30,7 +30,7 @@ class JSCalendar extends React.Component {
 
   componentDidMount() {
     const idUser = cookies.get("id");
-    let baseUrl = "/appointments/" + idUser;
+    let baseUrl = process.env.REACT_APP_BASE_URL + "/appointments/" + idUser;
     axios
       .get(baseUrl)
       .then((result) => {

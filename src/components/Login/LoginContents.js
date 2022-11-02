@@ -2,7 +2,7 @@ import React from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
 
-const baseUrl = "/login";
+const baseUrl = process.env.REACT_APP_BASE_URL + "/login";
 const cookies = new Cookies();
 
 class LoginContents extends React.Component {

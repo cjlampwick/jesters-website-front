@@ -9,7 +9,7 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 const events = [];
 
-const baseUrl = "/coworking";
+const baseUrl = process.env.REACT_APP_BASE_URL + "/coworking";
 
 class JSModalReserve extends React.Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class JSModalReserve extends React.Component {
   pagar = async () => {
     const idUserPagar = cookies.get("id");
     await axios
-      .post("/checkoutPagar", {
+      .post(process.env.REACT_APP_BASE_URL + "/checkoutPagar", {
         userIdPagar: idUserPagar,
         dateFrom: this.state.dateFrom,
         dateTo: this.state.dateTo,

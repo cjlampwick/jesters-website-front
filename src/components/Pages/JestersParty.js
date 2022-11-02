@@ -4,7 +4,7 @@ import axios from "axios";
 import background from "../../assets/background-video.webm";
 import Form from "react-bootstrap/Form";
 
-const baseUrl = "/checkout";
+const baseUrl = process.env.REACT_APP_BASE_URL + "/checkout";
 
 class JestersParty extends React.Component {
   state = {

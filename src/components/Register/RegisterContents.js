@@ -5,7 +5,7 @@ import "../../App.css";
 
 import axios from "axios";
 
-const baseUrl = "/register";
+const baseUrl = process.env.REACT_APP_BASE_URL + "/register";
 
 class RegisterContents extends React.Component {
   state = {
