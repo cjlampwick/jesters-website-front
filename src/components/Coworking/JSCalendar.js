@@ -29,33 +29,41 @@ class JSCalendar extends React.Component {
   };
 
   componentDidMount() {
-    const idUser = cookies.get("id");
-    let baseUrl = process.env.REACT_APP_BASE_URL + "/appointments/" + idUser;
-    axios
-      .get(baseUrl)
-      .then((result) => {
-        let events = this.state.events;
 
-        result.data.forEach((element) => {
-          let dateFrom = moment(element.dateFrom).add(3, "hour");
-          let dateTo = moment(element.dateTo).add(3, "hour");
-          let dateFromStr = dateFrom.format("DD/MM/YYYY");
-          let dateToStr = dateTo.format("DD/MM/YYYY");
+    if (cookies && cookies.get("email")) {
 
-          let title = dateFromStr + " -> " + dateToStr;
+      const idUser = cookies.get("id");
 
-          events.push({
-            start: element.dateFrom,
-            end: element.dateTo,
-            title: title,
-            id: element._id,
+      let baseUrl = process.env.REACT_APP_BASE_URL + "/appointments/" + idUser;
+
+      axios
+        .get(baseUrl)
+        .then((result) => {
+          let events = this.state.events;
+
+          result.data.forEach((element) => {
+            let dateFrom = moment(element.dateFrom).add(3, "hour");
+            let dateTo = moment(element.dateTo).add(3, "hour");
+            let dateFromStr = dateFrom.format("DD/MM/YYYY");
+            let dateToStr = dateTo.format("DD/MM/YYYY");
+
+            let title = dateFromStr + " -> " + dateToStr;
+
+            events.push({
+              start: element.dateFrom,
+              end: element.dateTo,
+              title: title,
+              id: element._id,
+            });
           });
+          this.setState({ events });
+        })
+        .catch((error) => {
+          error = new Error();
         });
-        this.setState({ events });
-      })
-      .catch((error) => {
-        error = new Error();
-      });
+    } else {
+      window.location.href = "/login";
+    }
   }
 
   onEventDrop = (data) => {
@@ -81,7 +89,7 @@ class JSCalendar extends React.Component {
     this.setState({ showHiddenEvent: false });
   };
 
-  deleteEvent = (data) => {};
+  deleteEvent = (data) => { };
   logOut = () => {
     cookies.remove("email", { path: "/" });
     cookies.remove("token", { path: "/" });

@@ -1,6 +1,7 @@
 import React from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import queryString from 'query-string'
 
 const baseUrl = process.env.REACT_APP_BASE_URL + "/login";
 const cookies = new Cookies();
@@ -13,7 +14,19 @@ class LoginContents extends React.Component {
       login: false,
       triedLogin: false,
     },
+    goto:''
   };
+
+  constructor(props){
+    super(props);
+
+    this.redireccionar = this.redireccionar.bind(this);
+  }
+
+  componentDidMount(){
+    let search = queryString.parse(window.location.search);
+    this.setState({goto: search.goto});
+  }
 
   handleChange = async (e) => {
     await this.setState({
@@ -26,7 +39,7 @@ class LoginContents extends React.Component {
   };
    
   redireccionar() {
-    window.location.href = "/register";
+    window.location.href = "/register?goto=" + this.state.goto;
   };
 
   iniciarSesion = async () => {
@@ -45,7 +58,7 @@ class LoginContents extends React.Component {
           cookies.set("fullName", respuesta.fullName, { path: "/" });
           cookies.set("token", respuesta.token, { path: "/" });
           cookies.set("username", respuesta.username, { path: "/" });
-          window.location.href = "./";
+          window.location.href = "./"+ this.state.goto;
         } else {
           alert("El usuario o la contraseña son incorrectos");
         }

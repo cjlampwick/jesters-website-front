@@ -9,11 +9,21 @@ import "../../styles/generic.css";
 import "../../styles/footer.css";
 
 import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom";
-
 import Spacing from "../../components/Spacing";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 class Coworking extends React.Component {
+
+    checkSession() {
+        if (cookies && cookies.get("email")) {
+            window.location.href = "/coworking/scheduler";
+        } else {
+            window.location.href = "/login?goto=coworking-scheduler";
+        }
+    }
+
     render() {
         return (
             <div>
@@ -23,10 +33,10 @@ class Coworking extends React.Component {
 
                 <div
                     className="App"
-                >   
+                >
                     <Spacing />
                     <div className="text-center" >
-                        <Link to="/coworking/scheduler"> <Button className='btn btn-secondary'>Agendar</Button> </Link>
+                        <Button onClick={this.checkSession} className='btn btn-secondary'>Agendar</Button>
                     </div>
                     <Spacing />
                 </div>
