@@ -29,10 +29,10 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d start",
-    "dev": "react-scripts --openssl-legacy-provider start",
+    "deploy": "gh-pages -d build",
+    "dev": "react-scripts start",
     "start": "serve -s build",
-    "build": "react-scripts --openssl-legacy-provider build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
