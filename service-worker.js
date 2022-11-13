@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/jesters-website/build/precache-manifest.2fd870f82f3cc8e408cf8af9efc13e8c.js"
+  "/jesters-website/precache-manifest.2739d34cab90a8414b488c696ad955c1.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/jesters-website/build/index.html", {
+workbox.routing.registerNavigationRoute("/jesters-website/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
