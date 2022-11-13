@@ -6,7 +6,7 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-const baseUrl = "/coworking/";
+const baseUrl = process.env.REACT_APP_BASE_URL + "/coworking/";
 
 class JSModalEvents extends React.Component {
   constructor(props) {
