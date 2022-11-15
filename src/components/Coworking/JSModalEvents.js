@@ -41,8 +41,7 @@ class JSModalEvents extends React.Component {
       .then((response) => {
         console.log(response);
         this.handleCloseEvent();
-        console.log(this.eventData);
-        // window.location.href = "/coworking/scheduler"
+        window.location.href = "/coworking/scheduler"
       })
 
   };
