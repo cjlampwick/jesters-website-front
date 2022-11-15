@@ -16,17 +16,12 @@ class JSModalEvents extends React.Component {
       show: true,
     };
 
-    // axios
-    //   .get(baseUrl)
-    //   .then((result) => {
-    //     let dateFrom = moment(element.dateFrom).add(3, "hour");
-    //     let dateTo = moment(element.dateTo).add(3, "hour");
-    //   })
-
     if (props.onCloseModalEvent) {
       this.eventData = props.eventData;
       this.onCloseModalEvent = props.onCloseModalEvent;
       this.deleteSuccess = props.deleteSuccess;
+
+      let dia = props.eventData.dateFrom;
 
       this.handleCloseEvent = this.handleCloseEvent.bind(this);
       this.handleShowEvent = this.handleShowEvent.bind(this);
@@ -60,7 +55,7 @@ class JSModalEvents extends React.Component {
         onHide={this.onCloseModalEvent}
       >
         <Modal.Header closeButton>
-          <Modal.Title style={{ color: "#626262" }}> Desea eliminar el evento del dia ?</Modal.Title>
+          <Modal.Title style={{ color: "#626262" }}> Desea eliminar el evento del dia {dia}?</Modal.Title>
         </Modal.Header>
 
         <Modal.Footer>
