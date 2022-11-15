@@ -52,7 +52,7 @@ class JSModalEvents extends React.Component {
         onHide={this.onCloseModalEvent}
       >
         <Modal.Header closeButton>
-          <Modal.Title style={{color:"#626262"}}> Desea eliminar este evento?</Modal.Title>
+          <Modal.Title style={{color:"#626262"}}> Desea eliminar el evento del dia ?</Modal.Title>
         </Modal.Header>
 
         <Modal.Footer>

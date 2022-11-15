@@ -46,13 +46,14 @@ class JSCalendar extends React.Component {
             let dateTo = moment(element.dateTo).add(3, "hour");
             let dateFromStr = dateFrom.format("DD/MM/YYYY");
             let dateToStr = dateTo.format("DD/MM/YYYY");
+            let status = element.status;
 
             let title = dateFromStr + " -> " + dateToStr;
 
             events.push({
               start: element.dateFrom,
               end: element.dateTo,
-              title: title,
+              title: status,
               id: element._id,
             });
           });
