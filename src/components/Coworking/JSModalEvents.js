@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import moment from "moment";
 
 const cookies = new Cookies();
 
@@ -14,6 +15,8 @@ class JSModalEvents extends React.Component {
 
     this.state = {
       show: true,
+      dia,
+      dateFromStr,
     };
 
     if (props.onCloseModalEvent) {
@@ -21,7 +24,8 @@ class JSModalEvents extends React.Component {
       this.onCloseModalEvent = props.onCloseModalEvent;
       this.deleteSuccess = props.deleteSuccess;
 
-      let dia = props.eventData.dateFrom;
+      dia = props.eventData.dateFrom;
+      dateFromStr = dia.format("DD/MM/YYYY");
 
       this.handleCloseEvent = this.handleCloseEvent.bind(this);
       this.handleShowEvent = this.handleShowEvent.bind(this);
@@ -54,7 +58,7 @@ class JSModalEvents extends React.Component {
         onHide={this.onCloseModalEvent}
       >
         <Modal.Header closeButton>
-          <Modal.Title style={{ color: "#626262" }}> Desea eliminar el evento del dia {dia}?</Modal.Title>
+          <Modal.Title style={{ color: "#626262" }}> Desea eliminar el evento del dia {this.state.dateFromStr}?</Modal.Title>
         </Modal.Header>
 
         <Modal.Footer>

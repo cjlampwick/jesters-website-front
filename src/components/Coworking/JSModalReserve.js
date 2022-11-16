@@ -62,12 +62,6 @@ class JSModalReserve extends React.Component {
       .catch((error) => {
         error = new Error();
       });
-      // events.push({
-      //   start: this.state.dateFrom,
-      //   end: this.state.dateTo,
-      //   title: "title",
-      //   id: idUserPagar,
-      // });
   };
   redirect = (evt) => {
     window.location.href = "/checkout";
