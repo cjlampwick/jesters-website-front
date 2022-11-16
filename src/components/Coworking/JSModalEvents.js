@@ -24,8 +24,8 @@ class JSModalEvents extends React.Component {
       this.onCloseModalEvent = props.onCloseModalEvent;
       this.deleteSuccess = props.deleteSuccess;
 
-      dia = props.eventData.dateFrom;
-      dateFromStr = dia.format("DD/MM/YYYY");
+      this.setState.dia = props.eventData.dateFrom;
+      this.setState.dateFromStr = this.state.dia.format("DD/MM/YYYY");
 
       this.handleCloseEvent = this.handleCloseEvent.bind(this);
       this.handleShowEvent = this.handleShowEvent.bind(this);
